@@ -1,0 +1,13 @@
+node_modules/
+
+adhoc/input/*
+adhoc/output/*
+
+facebook/input/*
+facebook/output/*
+
+instagram/input/*
+instagram/output/*
+
+snapchat/input/*
+snapchat/output/*

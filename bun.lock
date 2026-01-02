@@ -1,0 +1,35 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "dependencies": {
+        "exiftool-vendored": "latest",
+      },
+      "devDependencies": {
+        "@types/node": "latest",
+      },
+    },
+  },
+  "packages": {
+    "@photostructure/tz-lookup": ["@photostructure/tz-lookup@11.3.0", "", {}, "sha512-rYGy7ETBHTnXrwbzm47e3LJPKJmzpY7zXnbZhdosNU0lTGWVqzxptSjK4qZkJ1G+Kwy4F6XStNR9ZqMsXAoASQ=="],
+
+    "@types/luxon": ["@types/luxon@3.7.1", "", {}, "sha512-H3iskjFIAn5SlJU7OuxUmTEpebK6TKB8rxZShDslBMZJ5u9S//KM1sbdAisiSrqwLQncVjnpi2OK2J51h+4lsg=="],
+
+    "@types/node": ["@types/node@25.0.3", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-W609buLVRVmeW693xKfzHeIV6nJGGz98uCPfeXI1ELMLXVeKYZ9m15fAMSaUPBHYLGFsVRcMmSCksQOrZV9BYA=="],
+
+    "batch-cluster": ["batch-cluster@16.0.0", "", {}, "sha512-+T7Ho09ikx/kP4P8M+GEnpuePzRQa4gTUhtPIu6ApFC8+0GY0sri1y1PuB+yfXlQWl5DkHC/e58z3U6g0qCz/A=="],
+
+    "exiftool-vendored": ["exiftool-vendored@34.2.0", "", { "dependencies": { "@photostructure/tz-lookup": "^11.3.0", "@types/luxon": "^3.7.1", "batch-cluster": "^16.0.0", "he": "^1.2.0", "luxon": "^3.7.2" }, "optionalDependencies": { "exiftool-vendored.exe": "13.45.0", "exiftool-vendored.pl": "13.45.0" } }, "sha512-s12oPPIQgjnIpbRlk6tLKo5/D56I/pZB9yelSHGmKiHvZLrLMAUrXI2Ns7d6qmDka2FXTTXeh1rWdSeh/Tk+MA=="],
+
+    "exiftool-vendored.exe": ["exiftool-vendored.exe@13.45.0", "", { "os": "win32" }, "sha512-xa+gEnZ2Q9BAzaDr35xgADql+T6L92RqK0GjzOjzDuObwhr+sBr5RdySvZ3osHac9GJypxvk4cewNnj4OnPL3Q=="],
+
+    "exiftool-vendored.pl": ["exiftool-vendored.pl@13.45.0", "", { "os": "!win32", "bin": { "exiftool": "bin/exiftool" } }, "sha512-uA58bMcXqdSQAqsZbHa/SMU6XKXsmoMcJSlKJjsCmLlQKEThncuAlpg8wGVNhULNXxYmRXXnYQ1756UYQY9VIA=="],
+
+    "he": ["he@1.2.0", "", { "bin": { "he": "bin/he" } }, "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="],
+
+    "luxon": ["luxon@3.7.2", "", {}, "sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew=="],
+
+    "undici-types": ["undici-types@7.16.0", "", {}, "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="],
+  }
+}

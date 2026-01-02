@@ -1,0 +1,24 @@
+{
+    "name": "exiforia",
+    "version": "1.0.0",
+    "author": "Alan Morel",
+    "license": "AGPL-3.0",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AlanMorel/exiforia.git"
+    },
+    "scripts": {
+        "adhoc": "bun adhoc/adhoc.ts",
+        "facebook-albums": "bun facebook/facebook-albums.ts",
+        "instagram": "bun instagram/instagram.ts",
+        "snapchat-chat-media": "bun snapchat/snapchat.ts -- chat_media",
+        "snapchat-memories": "bun snapchat/snapchat.ts -- memories"
+    },
+    "dependencies": {
+        "exiftool-vendored": "^34.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^25.0.3"
+    }
+}
