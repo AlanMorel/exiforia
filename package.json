@@ -10,7 +10,7 @@
     },
     "scripts": {
         "adhoc": "bun adhoc/adhoc.ts",
-        "facebook-albums": "bun facebook/facebook-albums.ts",
+        "facebook": "bun facebook/facebook.ts",
         "instagram": "bun instagram/instagram.ts",
         "snapchat-chat-media": "bun snapchat/snapchat.ts -- chat_media",
         "snapchat-memories": "bun snapchat/snapchat.ts -- memories"
