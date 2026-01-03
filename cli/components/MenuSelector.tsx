@@ -43,7 +43,7 @@ export function MenuSelector({ items, onSelect }: MenuSelectorProps) {
             <Text color="green" bold>
                 {logo}
             </Text>
-            <Text dimColor>Use arrow keys to navigate, Enter to select, q to exit</Text>
+            <Text dimColor>Use arrow keys to navigate, enter to select, q to exit</Text>
             <Text> </Text>
             {items.map((item, index) => (
                 <Text key={item.label} color={item.color} bold={index === selectedIndex}>

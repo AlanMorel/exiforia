@@ -1,10 +1,12 @@
 # exiforia
 
-Update your photos from Facebook, Instagram, and Snapchat with exif data after exporting.
+![exiforia](./images/exiforia.png)
 
-When you export your photos from Facebook, Instagram, and Snapchat, the exif data on your photos are not preserved. This is a problem because when you import those photos into another photo management software, the order of your photos will not be correct. This tool will help you automatically update the exif data of your photos, allowing for easy importing.
+Exiforia is a CLI tool that adds exif data back to your photos exported from Facebook, Instagram, and Snapchat.
 
-## Installation
+When you export your photos from Facebook, Instagram, and Snapchat, the exif data on your photos will be missing. This is a problem because when you import those photos into another photo management software, the order of your photos will not be correct. This tool will automatically add back the exif data on your photos, enabling easy importing.
+
+## Setup
 
 Install bun, clone this repository, then install the dependencies
 
