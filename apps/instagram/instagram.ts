@@ -13,27 +13,32 @@ export async function instagram(): Promise<void> {
     const inputData = await fs.readFile(inputFile, "utf-8");
     const inputJson = JSON.parse(inputData);
 
-    const outputPath = path.join(__dirname, "output", "your-photos");
+    const outputPath = path.join(__dirname, "output");
 
     await fs.mkdir(outputPath, {
         recursive: true
     });
 
-    let updates = 0;
+    const files = inputJson.flatMap((mediaCategory: any) => mediaCategory.media);
 
-    for (const mediaCategory of inputJson) {
-        for (const mediaFile of mediaCategory.media) {
-            const folderName = mediaFile.uri.split("/")[2];
+    const results = await Promise.all(
+        files.map(async (file: any) => {
+            const folderName = file.uri.split("/")[2];
 
-            const photo = mediaFile.uri.split("/")[3];
-            const newDate = formatTimestamp(mediaFile.creation_timestamp);
+            const photo = file.uri.split("/")[3];
+
+            if (photo.includes("_original")) {
+                return false;
+            }
+
+            const newDate = formatTimestamp(file.creation_timestamp);
 
             const photoPath = path.join(__dirname, "input", folderName, photo);
             const photoExists = await fileExists(photoPath);
 
             if (!photoExists) {
                 console.error(`Photo ${photo} does not exist`);
-                continue;
+                return false;
             }
 
             await exiftool.write(photoPath, {
@@ -43,15 +48,18 @@ export async function instagram(): Promise<void> {
             });
 
             console.log(`Updated ${photo} to ${newDate}`);
-            updates++;
 
-            const writePath = path.join(__dirname, "output", photo);
+            const writePath = path.join(outputPath, photo);
 
             await fs.copyFile(photoPath, writePath);
-        }
-    }
+
+            return true;
+        })
+    );
 
     await exiftool.end();
+
+    const updates = results.filter(Boolean).length;
 
     console.log(`Updated ${updates} photos`);
 }

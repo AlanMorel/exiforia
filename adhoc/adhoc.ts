@@ -18,36 +18,39 @@ async function adhoc(): Promise<void> {
         recursive: true
     });
 
-    let updates = 0;
+    const results = await Promise.all(
+        Object.entries(newDates).map(async ([photo, newDate]) => {
+            if (photo.includes("_original")) {
+                return false;
+            }
 
-    for (const [photo, newDate] of Object.entries(newDates)) {
-        if (photo.includes("_original")) {
-            continue;
-        }
+            const photoPath = path.join(__dirname, "input", photo);
+            const photoExists = await fileExists(photoPath);
 
-        const photoPath = path.join(__dirname, "input", photo);
-        const photoExists = await fileExists(photoPath);
+            if (!photoExists) {
+                console.error(`Photo ${photo} does not exist`);
+                return false;
+            }
 
-        if (!photoExists) {
-            console.error(`Photo ${photo} does not exist`);
-            continue;
-        }
+            await exiftool.write(photoPath, {
+                DateTimeOriginal: newDate,
+                CreateDate: newDate,
+                ModifyDate: newDate
+            });
 
-        await exiftool.write(photoPath, {
-            DateTimeOriginal: newDate,
-            CreateDate: newDate,
-            ModifyDate: newDate
-        });
+            console.log(`Updated ${photo} to ${newDate}`);
 
-        console.log(`Updated ${photo} to ${newDate}`);
-        updates++;
+            const writePath = path.join(__dirname, "output", photo);
 
-        const writePath = path.join(__dirname, "output", photo);
+            await fs.copyFile(photoPath, writePath);
 
-        await fs.copyFile(photoPath, writePath);
-    }
+            return true;
+        })
+    );
 
     await exiftool.end();
+
+    const updates = results.filter(Boolean).length;
 
     console.log(`Updated ${updates} photos`);
 }
