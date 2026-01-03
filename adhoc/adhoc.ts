@@ -11,39 +11,45 @@ const newDates = {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const outputPath = path.join(__dirname, "output");
+async function adhoc(): Promise<void> {
+    const outputPath = path.join(__dirname, "output");
 
-await fs.mkdir(outputPath, {
-    recursive: true
-});
-
-let updates = 0;
-
-for (const [photo, newDate] of Object.entries(newDates)) {
-    if (photo.includes("_original")) {
-        continue;
-    }
-
-    const photoPath = path.join(__dirname, "input", photo);
-    const photoExists = await fileExists(photoPath);
-
-    if (!photoExists) {
-        console.error(`Photo ${photo} does not exist`);
-        continue;
-    }
-
-    await exiftool.write(photoPath, {
-        DateTimeOriginal: newDate,
-        CreateDate: newDate,
-        ModifyDate: newDate
+    await fs.mkdir(outputPath, {
+        recursive: true
     });
 
-    console.log(`Updated ${photo} to ${newDate}`);
-    updates++;
+    let updates = 0;
 
-    const writePath = path.join(__dirname, "output", photo);
+    for (const [photo, newDate] of Object.entries(newDates)) {
+        if (photo.includes("_original")) {
+            continue;
+        }
 
-    await fs.copyFile(photoPath, writePath);
+        const photoPath = path.join(__dirname, "input", photo);
+        const photoExists = await fileExists(photoPath);
+
+        if (!photoExists) {
+            console.error(`Photo ${photo} does not exist`);
+            continue;
+        }
+
+        await exiftool.write(photoPath, {
+            DateTimeOriginal: newDate,
+            CreateDate: newDate,
+            ModifyDate: newDate
+        });
+
+        console.log(`Updated ${photo} to ${newDate}`);
+        updates++;
+
+        const writePath = path.join(__dirname, "output", photo);
+
+        await fs.copyFile(photoPath, writePath);
+    }
+
+    await exiftool.end();
+
+    console.log(`Updated ${updates} photos`);
 }
 
-console.log("Done updating photos!");
+await adhoc();

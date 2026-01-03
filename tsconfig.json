@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "ESNext",
-        "moduleResolution": "Node",
+        "moduleResolution": "bundler",
         "strict": true,
         "allowJs": false,
         "skipLibCheck": true,
@@ -26,7 +26,8 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "noEmit": true,
-        "allowImportingTsExtensions": true
+        "allowImportingTsExtensions": true,
+        "jsx": "react-jsx"
     },
     "exclude": ["node_modules/**/*"]
 }

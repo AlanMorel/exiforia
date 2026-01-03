@@ -95,7 +95,9 @@ export async function snapchat(): Promise<void> {
         await fs.copyFile(photoPath, writePath);
     }
 
-    console.log("All memories updated successfully!");
+    await exiftool.end();
+
+    console.log(`Updated ${updates} photos`);
 }
 
 await snapchat();

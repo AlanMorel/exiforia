@@ -82,6 +82,8 @@ async function facebook(): Promise<void> {
         await fs.copyFile(photoPath, writePath);
     }
 
+    await exiftool.end();
+
     console.log(`Updated ${updates} photos`);
 }
 

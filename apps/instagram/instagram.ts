@@ -51,6 +51,8 @@ export async function instagram(): Promise<void> {
         }
     }
 
+    await exiftool.end();
+
     console.log(`Updated ${updates} photos`);
 }
 
