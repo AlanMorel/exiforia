@@ -75,6 +75,12 @@ For example, a `0.json` file might look like this:
 4) Run the script to update your Facebook photos:
 
 ```sh
+bun exiforia # then select Facebook
+```
+
+or
+
+```sh
 bun facebook
 ```
 
@@ -115,6 +121,12 @@ This looks like this:
 3) Run the script to update your Instagram photos:
 
 ```sh
+bun exiforia # then select Instagram
+```
+
+or
+
+```sh
 bun instagram
 ```
 
@@ -127,6 +139,12 @@ The output will be in the `apps/instagram/output` folder.
 2) Create a `apps/snapchat/input/chat_media` and `apps/snapchat/input/memories` folder and put your chat media and memories in it.
 
 3) Run the script to update your Snapchat photos and videos:
+
+```sh
+bun exiforia # then select Snapchat Chat Media or Memories
+```
+
+or
 
 ```sh
 bun snapchat-chat-media
@@ -150,6 +168,12 @@ const newDates = {
 ```
 
 3) Run the script to update your photos and videos:
+
+```sh
+bun exiforia # then select Adhoc
+```
+
+or
 
 ```sh
 bun adhoc

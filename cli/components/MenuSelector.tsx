@@ -1,3 +1,4 @@
+import { config } from "@/utils/Config.ts";
 import figlet from "figlet";
 import { Box, Text, useApp, useInput } from "ink";
 import { useState } from "react";
@@ -30,7 +31,7 @@ export function MenuSelector({ items, onSelect }: MenuSelectorProps) {
         }
     });
 
-    const logo = figlet.textSync("EXIFORIA", {
+    const logo = figlet.textSync(config.appName.toUpperCase(), {
         font: "ANSI Shadow",
         horizontalLayout: "default",
         verticalLayout: "default"
