@@ -33,9 +33,10 @@ async function readAllAlbums(directory: string): Promise<Record<string, string>>
             }
 
             const cleanedFileName = cleanFileName(fileName);
-            const creation_timestamp = photo.creation_timestamp;
+            const timestamp =
+                photo.media_metadata?.photo_metadata?.exif_data?.[0]?.taken_timestamp ?? photo.creation_timestamp;
 
-            const date = new Date(creation_timestamp * 1000);
+            const date = new Date(timestamp * 1000);
 
             results[cleanedFileName] = formatDate(date);
         }
