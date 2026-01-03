@@ -3,11 +3,11 @@ node_modules/
 adhoc/input/*
 adhoc/output/*
 
-facebook/input/*
-facebook/output/*
+apps/facebook/input/*
+apps/facebook/output/*
 
-instagram/input/*
-instagram/output/*
+apps/instagram/input/*
+apps/instagram/output/*
 
-snapchat/input/*
-snapchat/output/*
+apps/snapchat/input/*
+apps/snapchat/output/*

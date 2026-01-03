@@ -24,9 +24,9 @@ bun install
 
 ### Facebook
 
-Export your Facebook data using the export tool.
+1) Export your Facebook data using the [Facebook Data Export Tool](https://www.facebook.com/help/212802592074644/). Make sure to select your photos and use the JSON format.
 
-Create a `facebook/input/albums` folder and put your album data JSON in it.
+2) Create a `apps/facebook/input/albums` folder and put your album data JSON in it.
 
 For example, a `0.json` file might look like this:
 
@@ -70,23 +70,23 @@ For example, a `0.json` file might look like this:
 }
 ```
 
-Create a `facebook/input/your-photos` folder and put your photos in it.
+3) Create a `apps/facebook/input/your-photos` folder and put your photos in it.
 
-Run the script to update your Facebook photos:
+4) Run the script to update your Facebook photos:
 
 ```sh
 bun facebook
 ```
 
-The output will be in the `facebook/output/your-photos` folder.
+The output will be in the `apps/facebook/output/your-photos` folder.
 
 ### Instagram
 
-Export your Instagram data using the export tool.
+1) Export your Instagram data using the [Instagram Data Export Tool](https://www.facebook.com/help/212802592074644/).
 
-Create a `instagram/input` folder and put your photos in it, grouped by year and month. For example, like a `202601` folder.
+2) Create a `apps/instagram/input` folder and put your photos in it, grouped by year and month. For example, like a `202601` folder.
 
-Make sure this folder also contains a `instagram/input/posts_1.json` file.
+Make sure this folder also contains a `apps/instagram/input/posts_1.json` file.
 
 This looks like this:
 
@@ -112,36 +112,36 @@ This looks like this:
 ]
 ```
 
-Run the script to update your Instagram photos:
+3) Run the script to update your Instagram photos:
 
 ```sh
 bun instagram
 ```
 
-The output will be in the `instagram/output` folder.
+The output will be in the `apps/instagram/output` folder.
 
 ### Snapchat
 
-Export your Snapchat data using the export tool.
+1) Export your Snapchat data using the export tool.
 
-Create a `snapchat/input/chat_media` and `snapchat/input/memories` folder and put your chat media and memories in it.
+2) Create a `apps/snapchat/input/chat_media` and `apps/snapchat/input/memories` folder and put your chat media and memories in it.
 
-Run the script to update your Snapchat photos and videos:
+3) Run the script to update your Snapchat photos and videos:
 
 ```sh
 bun snapchat-chat-media
 bun snapchat-memories
 ```
 
-The output will be in the `snapchat/output/chat_media` and `snapchat/output/memories` folders.
+The output will be in the `apps/snapchat/output/chat_media` and `apps/snapchat/output/memories` folders.
 
 ### Adhoc
 
 You can also use the adhoc script to update the exif data of any number of photos and videos.
 
-Create a `adhoc/input` folder and put your photos and videos in it.
+1) Create a `adhoc/input` folder and put your photos and videos in it.
 
-Update the `newDates` object with the new dates you want to apply to your photos and videos.
+2) Update the `newDates` object with the new dates you want to apply to your photos and videos.
 
 ```ts
 const newDates = {
@@ -149,7 +149,7 @@ const newDates = {
 };
 ```
 
-Run the script to update your photos and videos:
+3) Run the script to update your photos and videos:
 
 ```sh
 bun adhoc

@@ -10,10 +10,10 @@
     },
     "scripts": {
         "adhoc": "bun adhoc/adhoc.ts",
-        "facebook": "bun facebook/facebook.ts",
-        "instagram": "bun instagram/instagram.ts",
-        "snapchat-chat-media": "bun snapchat/snapchat.ts -- chat_media",
-        "snapchat-memories": "bun snapchat/snapchat.ts -- memories"
+        "facebook": "bun apps/facebook/facebook.ts",
+        "instagram": "bun apps/instagram/instagram.ts",
+        "snapchat-chat-media": "bun apps/snapchat/snapchat.ts -- chat_media",
+        "snapchat-memories": "bun apps/snapchat/snapchat.ts -- memories"
     },
     "dependencies": {
         "exiftool-vendored": "^34.2.0"
